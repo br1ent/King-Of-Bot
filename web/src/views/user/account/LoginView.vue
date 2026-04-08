@@ -2,16 +2,16 @@
     <ContentField>
         <div class="row justify-content-md-center">
             <div class="col-3">
-                <form>
+                <form @submit.prevent="login">
                     <div class="mb-3">
                         <label for="username" class="form-label">用户名</label>
-                        <input type="text" class="form-control" id="username" placeholder="请输入用户名">
+                        <input type="text" class="form-control" id="username" placeholder="请输入用户名" v-model="username">
                     </div>
                     <div class="mb-3">
                         <label for="password" class="form-label">密码</label>
-                        <input type="password" class="form-control" id="password" placeholder="请输入密码">
+                        <input type="password" class="form-control" id="password" placeholder="请输入密码" v-model="password">
                     </div>
-                    <div class="errMsg"></div>
+                    <div class="errMsg">{{ errMsg }}</div>
                     <button type="submit" class="btn btn-primary" style="width: 100%;">登录</button>
                 </form>
             </div>
@@ -21,6 +21,29 @@
 
 <script setup>
 import ContentField from '@/components/ContentField.vue';
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+import { useStore } from 'vuex';
+
+const store = useStore();
+const username = ref("");
+const password = ref("");
+const errMsg = ref("");
+const router = useRouter();
+
+const login = () => {
+    errMsg.value = "",
+    store.dispatch("login", {
+        username: username.value,
+        password: password.value,
+        success(resp) {
+            router.push({name: "home"});
+        },
+        error(resp) {
+            errMsg.value = "用户名或密码错误!"
+        }
+    });
+};
 
 </script>
 

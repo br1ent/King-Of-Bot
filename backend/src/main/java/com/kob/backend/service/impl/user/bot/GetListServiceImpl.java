@@ -11,10 +11,8 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
-import java.util.Collections;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
+
 
 @Service
 public class GetListServiceImpl implements GetListService {

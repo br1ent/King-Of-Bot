@@ -20,6 +20,14 @@ export default {
 
         updataToken(state, token) {
             state.token = token;
+        },
+
+        logout(state) {
+            state.id = "";
+            state.username = "";
+            state.photo = "";
+            state.token = "";
+            state.is_login = false;
         }
     },
     actions: {
@@ -43,6 +51,33 @@ export default {
                     data.error(resp);
                 }
             })
+        },
+
+        getinfo(context, data) {
+            $.ajax({
+                url: "http://127.0.0.1:3000/user/account/getinfo",
+                type: "get",
+                headers: {
+                    Authorization: "Bearer " + context.state.token,
+                },
+                success(resp) {
+                    if (resp.error_message === "success") {
+                        context.commit("updataUser", {
+                            ...resp,
+                            is_login: true,
+                        });
+                        data.success(resp);
+                    } else {
+                        data.error(resp);
+                    }
+                },
+                error(resp) {
+                    data.error(resp);
+                }
+            });
+        },
+        logout(context) {
+            context.commit("logout");
         }
     },
     modules: {

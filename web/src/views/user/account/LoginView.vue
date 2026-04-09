@@ -36,10 +36,15 @@ const login = () => {
     store.dispatch("login", {
         username: username.value,
         password: password.value,
-        success(resp) {
-            router.push({name: "home"});
+        success() {
+            store.dispatch("getinfo", {
+                success() { 
+                    router.push({name: 'home'})
+                    console.log(store.state.user);
+                }
+            })
         },
-        error(resp) {
+        error() {
             errMsg.value = "用户名或密码错误!"
         }
     });

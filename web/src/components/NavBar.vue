@@ -20,10 +20,10 @@
                         </router-link>
                     </li>
                 </ul>
-                <ul class="navbar-nav">
+                <ul class="navbar-nav" v-if="$store.state.user.is_login">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            brent
+                            {{ $store.state.user.username }}
                         </a>
                         <ul class="dropdown-menu">
                             <li>
@@ -31,9 +31,21 @@
                             </li>
                             <li><hr class="dropdown-divider"></li>
                             <li>
-                                <a class="dropdown-item" href="#">退出</a>
+                                <a class="dropdown-item" href="#" @click="logout">退出</a>
                             </li>
                         </ul>
+                    </li>
+                </ul>
+                <ul class="navbar-nav" v-else>
+                    <li class="nav-item">
+                        <router-link class="nav-link" :to="{name: 'login'}" role="button">
+                            登录
+                        </router-link>
+                    </li>
+                    <li class="nav-item">
+                        <router-link class="nav-link" :to="{name: 'register'}" role="button">
+                            注册
+                        </router-link>
                     </li>
                 </ul>
             </div>
@@ -43,10 +55,18 @@
 
 <script setup>
 import { computed } from 'vue';
-import { useRoute } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
+import { useStore } from 'vuex';
 
 const route = useRoute()
 let route_name = computed(() => route.name)
+
+const router = useRouter();
+const store = useStore();
+const logout = () => {
+    store.dispatch("logout");
+    router.push({name: "login"})
+}
 
 </script>
 

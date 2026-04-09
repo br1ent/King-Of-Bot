@@ -6,49 +6,78 @@ import NotFound from '../views/error/NotFound.vue'
 import UserBotView from '../views/user/bot/UserBotView.vue'
 import LoginView from '../views/user/account/LoginView.vue'
 import RegisterView from '../views/user/account/RegisterView.vue'
+import store from '../store/index'
 
 
 const routes = [
   {
     path: '/',
     name: 'home',
-    redirect: '/pk'
+    redirect: '/pk',
   },
   {
     path: '/pk',
     name: 'pk',
     component: PkIndexView,
+    meta: {
+      requestAuth: true,
+      title: "开始对战"
+    }
   },
   {
     path: '/ranklist',
     name: 'ranklist',
     component: RankListView,
+    meta: {
+      requestAuth: true,
+      title: "对局列表"
+    }
   },
   {
     path: '/user/account/login',
     name: 'login',
     component: LoginView,
+    meta: {
+      requestAuth: false,
+      title: "登录"
+    }
   },
   {
     path: '/user/account/register',
     name: 'register',
     component: RegisterView,
+    meta: {
+      requestAuth: false,
+      title: "注册"
+    }
   },
   {
     path: '/record',
     name: 'record',
     component: RecordView,
+    meta: {
+      requestAuth: true,
+      title: "录像列表"
+    }
   },
   {
     path: '/user/bot',
     name: 'user_bot',
     component: UserBotView,
+    meta: {
+      requestAuth: true,
+      title: "我的bot"
+    }
   },
   
   {
     path: '/404',
     name: '404',
     component: NotFound,
+    meta: {
+      requestAuth: false,
+      title: "页面丢失"
+    }
   },
   {
     path: '/:catchAll(.*)',
@@ -60,6 +89,20 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(),
   routes
+});
+
+router.beforeEach((to, from, next) => {
+  if (to.meta.requestAuth && !store.state.user.is_login) {
+    next({name: "login"});
+  } else {
+    next();
+  }
+
+  if (to.meta.title) {
+    document.title = to.meta.title;
+  } else {
+    document.title = "kob"
+  }
 })
 
 export default router

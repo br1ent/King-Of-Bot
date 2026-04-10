@@ -1,0 +1,89 @@
+﻿<template>
+    <div class="matchground">
+        <div class="row">
+            <div class="col-6">
+                <div class="user-photo">
+                    <img :src="$store.state.user.photo" alt="用户头像">
+                </div>
+                <div class="user-name">
+                    {{ $store.state.user.username }}
+                </div>
+                <div class="user-rating">
+                    1500
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="user-photo">
+                    <img :src="$store.state.pk.opponent_photo" alt="对手头像">
+                </div>
+                <div class="user-name">
+                    {{ $store.state.pk.opponent_username }}
+                </div>
+                <div class="user-rating">
+                    {{ $store.state.pk.opponent_rating }}
+                </div>
+            </div>
+            <div class="col-12">
+                <button type="button" class="btn btn-success btn-lg" @click="startMatch">{{ btn_match }}</button>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+import { useStore } from 'vuex';
+
+const store = useStore();
+let btn_match = ref("开始匹配");
+
+const startMatch = () => {
+    if (btn_match.value === "开始匹配") {
+        btn_match.value = "取消匹配";
+    } else {
+        btn_match.value = "开始匹配";
+    }
+};
+
+</script>
+
+<style scoped>
+
+div.matchground {
+    width: 60vw;
+    height: 70vh;
+    background-color: rgba(50, 50, 50, 0.5);
+    margin: 40px auto;
+}
+
+div.user-photo {
+    text-align: center;
+    margin-top: 10vh;
+}
+
+div.user-photo img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+div.user-name {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+}
+
+div.user-rating {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 18px;
+    color: lightblue;
+}
+
+button {
+    display: block;
+    margin: 15vh auto;
+}
+</style>

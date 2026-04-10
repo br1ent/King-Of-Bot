@@ -1,36 +1,61 @@
 ﻿<template>
-    <ContentField>
-        <div class="row justify-content-md-center">
-            <div class="col-3">
-                <div v-if="successMsg" class="alert alert-success alert-dismissible fade show" role="alert">
-                    {{ successMsg }}
-                    <button type="button" class="btn-close" @click="successMsg = ''" aria-label="Close"></button>
-                </div>
-                <div v-if="errMsg" class="alert alert-danger alert-dismissible fade show" role="alert">
-                    {{ errMsg }}
-                </div>
-                <form @submit.prevent="register">
-                    <div class="mb-3">
-                        <label for="username" class="form-label">用户名</label>
-                        <input type="text" class="form-control" id="username" placeholder="请输入用户名" v-model="username">
-                    </div>
-                    <div class="mb-3">
-                        <label for="password" class="form-label">密码</label>
-                        <input type="password" class="form-control" id="password" placeholder="请输入密码" v-model="password">
-                    </div>
-                    <div class="mb-3">
-                        <label for="confirmed_password" class="form-label">确认密码</label>
-                        <input type="password" class="form-control" id="confirmed_password" placeholder="请确认密码" v-model="confirmedPassword">
-                    </div>
-                    <button type="submit" class="btn btn-primary" style="width: 100%;">注册</button>
-                </form>
-            </div>
+    <LoginRegisterField>
+        <h3 class="text-center mb-4 fw-bold text-primary">注 册</h3>
+
+        <div v-if="successMsg" class="alert alert-success border-0 shadow-sm mb-3 text-center">
+            {{ successMsg }}
         </div>
-    </ContentField>
+        <div v-if="errMsg" class="alert alert-danger border-0 shadow-sm mb-3 text-center">
+            {{ errMsg }}
+        </div>
+
+        <form @submit.prevent="register">
+            <div class="mb-3">
+                <label for="username" class="form-label small fw-bold">用户名</label>
+                <input 
+                    type="text" 
+                    class="form-control form-control-lg shadow-sm" 
+                    id="username" 
+                    placeholder="请输入用户名" 
+                    v-model="username"
+                >
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label small fw-bold">密码</label>
+                <input 
+                    type="password" 
+                    class="form-control form-control-lg shadow-sm" 
+                    id="password" 
+                    placeholder="请输入密码" 
+                    v-model="password"
+                >
+            </div>
+            <div class="mb-4">
+                <label for="confirmedPassword" class="form-label small fw-bold">确认密码</label>
+                <input 
+                    type="password" 
+                    class="form-control form-control-lg shadow-sm" 
+                    id="confirmedPassword" 
+                    placeholder="请再次输入密码" 
+                    v-model="confirmedPassword"
+                >
+            </div>
+            
+            <button type="submit" class="btn btn-primary btn-lg w-100 shadow-sm fw-bold">
+                注 册
+            </button>
+        </form>
+
+        <div class="text-center mt-3">
+            <small class="text-muted">已有账号？
+                <router-link :to="{name: 'login'}" class="text-decoration-none fw-bold">立即登录</router-link>
+            </small>
+        </div>
+    </LoginRegisterField>
 </template>
 
 <script setup>
-import ContentField from '@/components/ContentField.vue';
+import LoginRegisterField from '@/components/LoginRegisterField.vue';
 import $ from "jquery"
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
@@ -71,10 +96,9 @@ const register = () => {
 </script>
 
 <style scoped>
-
-div.errMsg {
-    color: red;
-    text-align: center;
-    margin-bottom: 10px;
+/* 保持简洁，主要依赖 Bootstrap 类 */
+.form-control:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
 }
 </style>

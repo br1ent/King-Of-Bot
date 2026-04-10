@@ -1,32 +1,48 @@
 ﻿<template>
-    <ContentField v-if="!$store.state.user.pulling_info">
-        <div class="row justify-content-md-center">
-            <div class="col-3">
-                <div v-if="successMsg" class="alert alert-success alert-dismissible fade show" role="alert" style="text-align: center;">
-                    {{ successMsg }}
-                    <button type="button" class="btn-close" @click="successMsg = ''" aria-label="Close"></button>
-                </div>
-                <div v-if="errMsg" class="alert alert-danger alert-dismissible fade show" role="alert">
-                    {{ errMsg }}
-                </div>
-                <form @submit.prevent="login">
-                    <div class="mb-3">
-                        <label for="username" class="form-label">用户名</label>
-                        <input type="text" class="form-control" id="username" placeholder="请输入用户名" v-model="username">
-                    </div>
-                    <div class="mb-3">
-                        <label for="password" class="form-label">密码</label>
-                        <input type="password" class="form-control" id="password" placeholder="请输入密码" v-model="password">
-                    </div>
-                    <button type="submit" class="btn btn-primary" style="width: 100%;">登录</button>
-                </form>
-            </div>
+    <LoginRegisterField v-if="!$store.state.user.pulling_info">
+        <h3 class="text-center mb-4 fw-bold text-primary">登 录</h3>
+
+        <div v-if="successMsg" class="alert alert-success border-0 shadow-sm mb-3">
+            {{ successMsg }}
         </div>
-    </ContentField>
+        <div v-if="errMsg" class="alert alert-danger border-0 shadow-sm mb-3">
+            {{ errMsg }}
+        </div>
+
+        <form @submit.prevent="login">
+            <div class="mb-3">
+                <label for="username" class="form-label small fw-bold">用户名</label>
+                <input 
+                    type="text" 
+                    class="form-control form-control-lg" 
+                    id="username" 
+                    placeholder="请输入用户名" 
+                    v-model="username"
+                >
+            </div>
+            <div class="mb-4">
+                <label for="password" class="form-label small fw-bold">密码</label>
+                <input 
+                    type="password" 
+                    class="form-control form-control-lg" 
+                    id="password" 
+                    placeholder="请输入密码" 
+                    v-model="password"
+                >
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg w-100 shadow-sm">
+                登 录
+            </button>
+        </form>
+
+        <div class="text-center mt-3">
+            <small class="text-muted">还没有账号？<router-link :to="{name: 'register'}" class="text-decoration-none">立即注册</router-link></small>
+        </div>
+    </LoginRegisterField>
 </template>
 
 <script setup>
-import ContentField from '@/components/ContentField.vue';
+import LoginRegisterField from '@/components/LoginRegisterField.vue';
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { useStore } from 'vuex';
@@ -74,13 +90,7 @@ const login = () => {
         }
     });
 };
-
 </script>
 
 <style scoped>
-div.errMsg {
-    color: red;
-    text-align: center;
-    margin-bottom: 10px;
-}
 </style>

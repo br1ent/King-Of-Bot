@@ -39,7 +39,8 @@ const routes = [
     component: LoginView,
     meta: {
       requestAuth: false,
-      title: "登录"
+      title: "登录",
+      hideNavBar: true
     }
   },
   {
@@ -48,7 +49,8 @@ const routes = [
     component: RegisterView,
     meta: {
       requestAuth: false,
-      title: "注册"
+      title: "注册",
+      hideNavBar: true
     }
   },
   {

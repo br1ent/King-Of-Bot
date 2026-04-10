@@ -1,6 +1,6 @@
 <template>
   <div>
-    <NavBar v-if="$store.state.pk.status === 'matching'"></NavBar>
+    <NavBar v-if="shouldShowNavBar"></NavBar>
     <router-view></router-view>
   </div>
 </template>
@@ -10,6 +10,21 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap'
 import NavBar from './components/NavBar.vue';
+import { useStore } from 'vuex';
+import { useRoute } from 'vue-router';
+import { computed } from 'vue';
+
+const store = useStore();
+const route = useRoute();
+
+const shouldShowNavBar = computed(() => {
+    if (route.meta.hideNavBar) return false;
+    if (store.state.pk.status === 'playing') return false;
+    if (!store.state.user.is_login) return false;
+    
+    return true;
+});
+
 </script>
 
 <style>

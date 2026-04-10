@@ -9,7 +9,7 @@
                     {{ $store.state.user.username }}
                 </div>
                 <div class="user-rating">
-                    1500
+                    {{ $store.state.user.rating }}
                 </div>
             </div>
             <div class="col-6">
@@ -40,8 +40,14 @@ let btn_match = ref("开始匹配");
 const startMatch = () => {
     if (btn_match.value === "开始匹配") {
         btn_match.value = "取消匹配";
+        store.state.pk.socket.send(JSON.stringify({
+            event: "start_matching"
+        }));
     } else {
         btn_match.value = "开始匹配";
+        store.state.pk.socket.send(JSON.stringify({
+            event: "stopt_matching"
+        }));
     }
 };
 

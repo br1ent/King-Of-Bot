@@ -1,6 +1,6 @@
 <template>
   <div>
-    <NavBar></NavBar>
+    <NavBar v-if="$store.state.pk.status === 'matching'"></NavBar>
     <router-view></router-view>
   </div>
 </template>

@@ -5,6 +5,7 @@ export default {
         id: "",
         username: "",
         photo: "",
+        rating: "",
         token: "",
         is_login: false,
         pulling_info: true,
@@ -16,6 +17,7 @@ export default {
             state.id = user.id;
             state.username = user.username;
             state.photo = user.photo;
+            state.rating = user.rating;
             state.is_login = user.is_login;
         },
 
@@ -27,6 +29,7 @@ export default {
             state.id = "";
             state.username = "";
             state.photo = "";
+            state.rating = "";
             state.token = "";
             state.is_login = false;
         },

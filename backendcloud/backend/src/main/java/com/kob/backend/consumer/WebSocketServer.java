@@ -33,7 +33,7 @@ public class WebSocketServer {
     public final static ConcurrentHashMap<Integer, WebSocketServer> users = new ConcurrentHashMap<>(); // 维护所有websocket连接
 
     private Session session = null;
-    private Game game = null;
+    public Game game = null;
 
     private final static String addPlayerUrl = "http://127.0.0.1:3001/player/add";
     private final static String removePlayerUrl = "http://127.0.0.1:3001/player/remove";

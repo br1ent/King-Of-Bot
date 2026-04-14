@@ -31,7 +31,7 @@ const routes = [
     component: RankListView,
     meta: {
       requestAuth: true,
-      title: "对局列表"
+      title: "排行榜"
     }
   },
   {

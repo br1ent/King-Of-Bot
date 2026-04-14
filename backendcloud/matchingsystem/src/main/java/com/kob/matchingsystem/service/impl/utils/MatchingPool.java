@@ -80,7 +80,6 @@ public class MatchingPool extends Thread{
 
     // 尝试匹配玩家
     private void matchPlayers() {
-        log.info("匹配的玩家有: {}", players.toString());
         boolean[] matched = new boolean[players.size()];
         for (int i = 0; i < players.size(); i ++ ) {
             if (matched[i]) continue;

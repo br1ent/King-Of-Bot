@@ -1,0 +1,11 @@
+server:
+  port: 3001
+
+# 日志配置
+logging:
+  level:
+    com.kob.matchingsystem: DEBUG
+  file:
+    name: logs/kob-matchingsystem.log
+  pattern:
+    file: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"

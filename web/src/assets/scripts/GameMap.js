@@ -11,8 +11,8 @@ export class GameMap extends AcGameObject {
         this.L = 0;
         this.store = store;
 
-        this.rows = 13;
-        this.cols = 14;
+        this.rows = 15;
+        this.cols = 16;
 
         this.inner_walls_count = 20;
         this.walls = [];

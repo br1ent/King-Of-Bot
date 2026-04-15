@@ -1,0 +1,26 @@
+2026-04-15 20:32:48 - Starting MatchingSystemApplication using Java 1.8.0_202 on brent with PID 26856 (F:\MyProject\King Of Bot\backendcloud\matchingsystem\target\classes started by 53022 in F:\MyProject\King Of Bot\backendcloud)
+2026-04-15 20:32:48 - Running with Spring Boot v2.6.13, Spring v5.3.23
+2026-04-15 20:32:48 - No active profile set, falling back to 1 default profile: "default"
+2026-04-15 20:32:49 - Tomcat initialized with port(s): 3001 (http)
+2026-04-15 20:32:49 - Starting service [Tomcat]
+2026-04-15 20:32:49 - Starting Servlet engine: [Apache Tomcat/9.0.68]
+2026-04-15 20:32:49 - Initializing Spring embedded WebApplicationContext
+2026-04-15 20:32:49 - Root WebApplicationContext: initialization completed in 790 ms
+2026-04-15 20:32:49 - 
+
+Using generated security password: c2b61e3b-ebb2-4ebc-8628-2f52b074447d
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-04-15 20:32:49 - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@30b91, org.springframework.security.web.context.SecurityContextPersistenceFilter@1b8855f, org.springframework.security.web.header.HeaderWriterFilter@fc5eb1, org.springframework.security.web.authentication.logout.LogoutFilter@7517e4, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@29f290, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1325036, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@32e725, org.springframework.security.web.session.SessionManagementFilter@1f74733, org.springframework.security.web.access.ExceptionTranslationFilter@5db4a, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@963176]
+2026-04-15 20:32:49 - Tomcat started on port(s): 3001 (http) with context path ''
+2026-04-15 20:32:49 - Started MatchingSystemApplication in 1.648 seconds (JVM running for 2.597)
+2026-04-15 20:49:12 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-15 20:49:12 - Initializing Servlet 'dispatcherServlet'
+2026-04-15 20:49:12 - Completed initialization in 1 ms
+2026-04-15 20:49:12 - 玩家开始匹配,id: 1, 分值: 1541, bot_id: -1
+2026-04-15 20:49:12 - 玩家开始匹配,id: 8, 分值: 1553, bot_id: 8
+2026-04-15 20:49:14 - 发送信息:Player(userId=1, rating=1541, botId=-1, waitingTime=2), Player(userId=8, rating=1553, botId=8, waitingTime=2)
+2026-04-15 20:49:24 - 玩家开始匹配,id: 1, 分值: 1541, bot_id: -1
+2026-04-15 20:49:26 - 玩家开始匹配,id: 8, 分值: 1553, bot_id: -1
+2026-04-15 20:49:28 - 发送信息:Player(userId=1, rating=1541, botId=-1, waitingTime=5), Player(userId=8, rating=1553, botId=-1, waitingTime=2)

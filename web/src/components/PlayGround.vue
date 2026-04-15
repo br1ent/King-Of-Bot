@@ -52,20 +52,20 @@ div.playground {
     position: absolute;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 5px;
     background-color: rgba(0, 0, 0, 0.6);
     padding: 8px 12px;
     border-radius: 8px;
-    z-index: 10;
+    z-index: 5;
 }
 
 .snake-indicator-left {
-    left: 10px;
+    left: 5px;
     bottom: 10px;
 }
 
 .snake-indicator-right {
-    right: 10px;
+    right: 5px;
     top: 10px;
 }
 

@@ -94,8 +94,8 @@ public class WebSocketServer {
         Bot botA = botMapper.selectById(aBotId), botB = botMapper.selectById(bBotId);
 
         Game game = new Game(
-                13,
-                14,
+                15,
+                16,
                 20,
                 a.getId(),
                 botA,

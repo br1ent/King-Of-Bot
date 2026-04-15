@@ -115,9 +115,9 @@ pull_page(current_page);
 
 const stringTo2D = map =>  {
     let g = [];
-    for (let i = 0, k = 0; i < 13; i ++ ) {
+    for (let i = 0, k = 0; i < 15; i ++ ) {
         let line = [];
-        for (let j = 0; j < 14; j ++ , k ++ ) {
+        for (let j = 0; j < 16; j ++ , k ++ ) {
             if (map[k] === "0") line.push(0);
             else line.push(1);
         }

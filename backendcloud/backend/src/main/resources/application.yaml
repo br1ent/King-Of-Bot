@@ -1,0 +1,19 @@
+server:
+  port: 3000
+
+spring:
+  # 数据库基本配置
+  datasource:
+    username: root
+    password: "000000"
+    url: jdbc:mysql://localhost:3306/kob?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+# 日志配置
+logging:
+  level:
+    com.kob.backend: DEBUG
+  file:
+    name: logs/kob-backend.log
+  pattern:
+    file: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"

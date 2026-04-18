@@ -3,6 +3,13 @@
 ## 📖 项目简介
 
 King Of Bot 是一个基于微服务架构的多人对战贪吃蛇游戏平台，支持玩家实时匹配对战和AI机器人对战。项目采用前后端分离架构，提供完整的用户注册、登录、对战匹配、游戏记录等功能。
+---
+对战演示：
+<img width="2423" height="958" alt="kob" src="https://github.com/user-attachments/assets/2164b4e0-0ab7-41e2-a290-bfbde6955d15" />
+---
+录像查看：
+<img width="1754" height="992" alt="录像演示" src="https://github.com/user-attachments/assets/7da41423-7633-4115-b38e-a6b1e0b14587" />
+
 
 ## 🎮 核心功能
 
@@ -207,16 +214,5 @@ public interface BotInterface {
 - 数据库索引优化
 - 前端资源懒加载
 
+录像查看：
 
-项目页面:
-<img width="1933" height="1081" alt="image" src="https://github.com/user-attachments/assets/69156a55-b173-4fff-aa59-9b494e2c6fa6" />
-
-<img width="1243" height="997" alt="image" src="https://github.com/user-attachments/assets/79271ae9-b803-4f74-9df5-be1bcdbfc5ea" />
-
-<img width="1909" height="681" alt="image" src="https://github.com/user-attachments/assets/4a18958d-0968-449a-8747-6aa121ad7b89" />
-
-<img width="2023" height="742" alt="image" src="https://github.com/user-attachments/assets/30611748-42c2-49ad-a4d6-0dfa73a920cb" />
-
-<img width="2118" height="1092" alt="image" src="https://github.com/user-attachments/assets/c3b813fc-7912-498f-ab83-cc653d59276f" />
-
-<img width="1900" height="829" alt="image" src="https://github.com/user-attachments/assets/db826dfe-f732-4688-8a7e-ddd496cd4221" />

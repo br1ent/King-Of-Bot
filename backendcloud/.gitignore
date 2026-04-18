@@ -1,4 +1,4 @@
-HELP.md
+﻿HELP.md
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
@@ -31,3 +31,22 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Logs ###
+logs/
+*.log
+log/
+**/logs/
+**/*.log
+
+### 敏感信息 ###
+application-prod.yaml
+application-prod.properties
+*.keystore
+*.jks
+*.key
+
+### 临时文件 ###
+*.tmp
+*.bak
+*.swp

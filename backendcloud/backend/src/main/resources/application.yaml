@@ -13,7 +13,3 @@ spring:
 logging:
   level:
     com.kob.backend: DEBUG
-  file:
-    name: logs/kob-backend.log
-  pattern:
-    file: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"

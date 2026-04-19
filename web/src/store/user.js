@@ -40,7 +40,7 @@ export default {
     actions: {
         login(context, data) {
             $.ajax({
-                url: "http://127.0.0.1:3000/api/user/account/token",
+                url: "https://app4397.acapp.acwing.com.cn/api/user/account/token",
                 type: "post",
                 data: {
                     username: data.username,
@@ -63,7 +63,7 @@ export default {
 
         getinfo(context, data) {
             $.ajax({
-                url: "http://127.0.0.1:3000/api/user/account/getinfo",
+                url: "https://app4397.acapp.acwing.com.cn/api/user/account/getinfo",
                 type: "get",
                 headers: {
                     Authorization: "Bearer " + context.state.token,

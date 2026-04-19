@@ -80,7 +80,7 @@ const update_pages = () => {
 const pull_page = page => {
     current_page = page;
     $.ajax({
-        url: "http://127.0.0.1:3000/api/ranklist/getlist",
+        url: "https://app4397.acapp.acwing.com.cn/api/ranklist/getlist",
         type: "get",
         headers: {
             Authorization: "Bearer " + store.state.user.token

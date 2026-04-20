@@ -71,7 +71,7 @@ const register = () => {
     errMsg.value = "";
     successMsg.value = "";
     $.ajax({
-        url: "https://app4397.acapp.acwing.com.cn/api/user/account/register",
+        url: "http://127.0.0.1:3000/api/user/account/register",
         type: "post",
         data: {
             username: username.value,

@@ -18,10 +18,8 @@ const store = useStore();
 const route = useRoute();
 
 const shouldShowNavBar = computed(() => {
-    if (route.meta.hideNavBar) return false;
     if (store.state.pk.status === 'playing') return false;
-    if (!store.state.user.is_login) return false;
-    
+   
     return true;
 });
 

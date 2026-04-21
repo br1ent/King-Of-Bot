@@ -17,6 +17,11 @@ const routes = [
     redirect: '/pk',
   },
   {
+    path: '/home',
+    name: 'home_redirect',
+    
+  }
+  {
     path: '/pk',
     name: 'pk',
     component: PkIndexView,
@@ -41,7 +46,6 @@ const routes = [
     meta: {
       requestAuth: false,
       title: "登录",
-      hideNavBar: true
     }
   },
   {
@@ -51,7 +55,6 @@ const routes = [
     meta: {
       requestAuth: false,
       title: "注册",
-      hideNavBar: true
     }
   },
   {

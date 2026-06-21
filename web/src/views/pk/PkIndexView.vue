@@ -20,7 +20,7 @@ import { useStore } from 'vuex';
 
 const store = useStore();
 let socket = null;
-const socketUrl = `ws://127.0.0.1:3000/websocket/${store.state.user.token}`;
+const socketUrl = `wss://app8071.acapp.acwing.com.cn/websocket/${store.state.user.token}`;
 
 store.commit("updateLoser", "none");
 store.commit("updateIsRecord", false);

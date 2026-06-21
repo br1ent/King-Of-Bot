@@ -1,4 +1,4 @@
-﻿import { createRouter, createWebHistory } from 'vue-router'
+﻿﻿import { createRouter, createWebHistory } from 'vue-router'
 import PkIndexView from '../views/pk/PkIndexView.vue'
 import RankListView from '../views/ranklist/RankListView.vue'
 import RecordView from '../views/record/RecordView.vue'
@@ -14,7 +14,7 @@ import HomeView from '../views/home/HomeView.vue'
 const routes = [
   {
     path: '/',
-    name: 'home',
+    name: 'root',
     redirect: '/home',
   },
   {

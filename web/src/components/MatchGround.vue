@@ -66,7 +66,7 @@ const startMatch = () => {
 let bots = ref([]);
 const getList = () => {
     $.ajax({
-        url: "http://127.0.0.1:3000/api/user/bot/getlist",
+        url: "https://app8071.acapp.acwing.com.cn/api/user/bot/getlist",
         type: "get",
         headers: {
             Authorization: "Bearer " + store.state.user.token

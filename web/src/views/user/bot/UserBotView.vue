@@ -161,7 +161,7 @@ const botadd = reactive({
 
 const getList = () => {
     $.ajax({
-        url: "http://127.0.0.1:3000/api/user/bot/getlist",
+        url: "https://app8071.acapp.acwing.com.cn/api/user/bot/getlist",
         type: "get",
         headers: {
             Authorization: "Bearer " + store.state.user.token
@@ -177,7 +177,7 @@ const add_bot = () => {
     botadd.errMsg = "";
 
     $.ajax({
-        url: "http://127.0.0.1:3000/api/user/bot/add",
+        url: "https://app8071.acapp.acwing.com.cn/api/user/bot/add",
         type: "post",
         data: {
             title: botadd.title,
@@ -207,7 +207,7 @@ const add_bot = () => {
 const remove_bot = (bot) => {
     botadd.errMsg = "";
     $.ajax({
-        url: "http://127.0.0.1:3000/api/user/bot/remove",
+        url: "https://app8071.acapp.acwing.com.cn/api/user/bot/remove",
         type: "post",
         headers: {
             Authorization: "Bearer " + store.state.user.token
@@ -232,7 +232,7 @@ const update_bot = (bot) => {
     botadd.errMsg = "";
 
     $.ajax({
-        url: "http://127.0.0.1:3000/api/user/bot/update",
+        url: "https://app8071.acapp.acwing.com.cn/api/user/bot/update",
         type: "post",
         data: {
             bot_id: bot.id,

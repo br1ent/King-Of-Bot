@@ -28,7 +28,7 @@
                 
                 <!-- GitHub链接 -->
                 <div class="navbar-nav ms-auto">
-                    <a class="nav-link github-link" href="https://github.com" target="_blank" rel="noopener noreferrer">
+                    <a class="nav-link github-link" href="https://github.com/br1ent/King-Of-Bot" target="_blank" rel="noopener noreferrer">
                         <i class="fab fa-github"></i>
                         <span class="github-text">GitHub</span>
                     </a>

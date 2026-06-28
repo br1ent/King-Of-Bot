@@ -1,4 +1,4 @@
-﻿import $ from 'jquery';
+import apiClient from '@/utils/http'
 
 export default {
     state: {
@@ -39,49 +39,35 @@ export default {
     },
     actions: {
         login(context, data) {
-            $.ajax({
-                url: "https://app8071.acapp.acwing.com.cn/api/user/account/token",
-                type: "post",
-                data: {
-                    username: data.username,
-                    password: data.password
-                },
-                success(resp) {
-                    if (resp.error_message === "success") {
-                        localStorage.setItem("jwt_token", resp.token);
-                        context.commit("updateToken", resp.token);
-                        data.success(resp);
-                    } else {
-                        data.error(resp);
-                    }
-                },
-                error(resp) {
-                    data.error(resp);
+            apiClient.post('/user/account/token', {
+                username: data.username,
+                password: data.password
+            }).then(resp => {
+                if (resp.data.error_message === "success") {
+                    localStorage.setItem("jwt_token", resp.data.token);
+                    context.commit("updateToken", resp.data.token);
+                    data.success(resp.data);
+                } else {
+                    data.error(resp.data);
                 }
+            }).catch(resp => {
+                data.error(resp);
             })
         },
 
         getinfo(context, data) {
-            $.ajax({
-                url: "https://app8071.acapp.acwing.com.cn/api/user/account/getinfo",
-                type: "get",
-                headers: {
-                    Authorization: "Bearer " + context.state.token,
-                },
-                success(resp) {
-                    if (resp.error_message === "success") {
-                        context.commit("updateUser", {
-                            ...resp,
-                            is_login: true,
-                        });
-                        data.success(resp);
-                    } else {
-                        data.error(resp);
-                    }
-                },
-                error(resp) {
-                    data.error(resp);
+            apiClient.get('/user/account/getinfo').then(resp => {
+                if (resp.data.error_message === "success") {
+                    context.commit("updateUser", {
+                        ...resp.data,
+                        is_login: true,
+                    });
+                    data.success(resp.data);
+                } else {
+                    data.error(resp.data);
                 }
+            }).catch(resp => {
+                data.error(resp);
             });
         },
         logout(context) {

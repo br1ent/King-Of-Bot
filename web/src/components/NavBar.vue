@@ -1,70 +1,85 @@
-﻿<template>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <router-link class="navbar-brand" :to="{name: 'home'}">King Of Bot</router-link>
-            <div class="collapse navbar-collapse" id="navbarText">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <router-link :class="route_name === 'home' ? 'nav-link active' : 'nav-link'" :to="{name: 'home'}">
-                            主页
-                         </router-link>
-                    </li>
-                    <li class="nav-item">
-                        <router-link :class="route_name === 'pk' ? 'nav-link active' : 'nav-link'" :to="{name: 'pk'}">
-                            对战
-                         </router-link>
-                    </li>
-                    <li class="nav-item">
-                        <router-link :class="route_name === 'record' ? 'nav-link active' : 'nav-link'" :to="{name: 'record'}">
-                            对局列表
-                        </router-link>
-                    </li>
-                    <li class="nav-item">
-                        <router-link :class="route_name === 'ranklist' ? 'nav-link active' : 'nav-link'" :to="{name: 'ranklist'}">
-                            排行榜
-                        </router-link>
-                    </li>
-                </ul>
-                
-                <!-- GitHub链接 -->
-                <div class="navbar-nav ms-auto">
-                    <a class="nav-link github-link" href="https://github.com/br1ent/King-Of-Bot" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-github"></i>
-                        <span class="github-text">GitHub</span>
-                    </a>
-                </div>
-                
-                <ul class="navbar-nav" v-if="$store.state.user.is_login">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            {{ $store.state.user.username }}
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <router-link class="dropdown-item" :to="{name: 'user_bot'}">我的bot</router-link>
-                            </li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li>
-                                <a class="dropdown-item" href="#" @click="logout">退出</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-                <ul class="navbar-nav" v-else-if="!store.state.user.pulling_info">
-                    <li class="nav-item">
-                        <router-link class="nav-link" :to="{name: 'login'}" role="button">
-                            登录
-                        </router-link>
-                    </li>
-                    <li class="nav-item">
-                        <router-link class="nav-link" :to="{name: 'register'}" role="button">
-                            注册
-                        </router-link>
-                    </li>
-                </ul>
-            </div>
+<template>
+  <div class="navbar bg-base-200/70 backdrop-blur shadow-lg sticky top-0 z-50">
+    <div class="flex-1">
+      <!-- Brand -->
+      <router-link :to="{name: 'home'}" class="btn btn-ghost text-xl font-bold tracking-wide">
+        King Of Bot
+      </router-link>
+
+      <!-- Desktop nav links -->
+      <div class="hidden lg:flex ml-4">
+        <ul class="menu menu-horizontal px-1 gap-1">
+          <li>
+            <router-link :to="{name: 'home'}">
+              Home
+            </router-link>
+          </li>
+          <li>
+            <router-link :to="{name: 'pk'}">
+              Battle
+            </router-link>
+          </li>
+          <li>
+            <router-link :to="{name: 'record'}">
+              Records
+            </router-link>
+          </li>
+          <li>
+            <router-link :to="{name: 'ranklist'}">
+              Leaderboard
+            </router-link>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="flex-none gap-2">
+      <!-- GitHub link -->
+      <a class="btn btn-ghost btn-circle" href="https://github.com/br1ent/King-Of-Bot"
+         target="_blank" rel="noopener noreferrer" title="GitHub">
+        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+        </svg>
+      </a>
+
+      <!-- Mobile hamburger dropdown -->
+      <div class="dropdown dropdown-end lg:hidden">
+        <label tabindex="0" class="btn btn-ghost">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </label>
+        <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-50 p-2 shadow bg-base-200 rounded-box w-52">
+          <li><router-link :to="{name: 'home'}">Home</router-link></li>
+          <li><router-link :to="{name: 'pk'}">Battle</router-link></li>
+          <li><router-link :to="{name: 'record'}">Records</router-link></li>
+          <li><router-link :to="{name: 'ranklist'}">Leaderboard</router-link></li>
+        </ul>
+      </div>
+
+      <!-- User menu / Auth buttons -->
+      <template v-if="$store.state.user.is_login">
+        <div class="dropdown dropdown-end">
+          <label tabindex="0" class="btn btn-ghost">
+            {{ $store.state.user.username }}
+            <svg class="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </label>
+          <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-50 p-2 shadow bg-base-200 rounded-box w-48">
+            <li>
+              <router-link :to="{name: 'user_bot'}">My Bots</router-link>
+            </li>
+            <li><a href="#" @click.prevent="logout">Logout</a></li>
+          </ul>
         </div>
-    </nav>
+      </template>
+      <template v-else-if="!store.state.user.pulling_info">
+        <router-link :to="{name: 'login'}" class="btn btn-ghost">Login</router-link>
+        <router-link :to="{name: 'register'}" class="btn btn-primary btn-sm">Register</router-link>
+      </template>
+    </div>
+  </div>
 </template>
 
 <script setup>
@@ -81,43 +96,4 @@ const logout = () => {
     store.dispatch("logout");
     router.push({name: "login"})
 }
-
 </script>
-
-<style scoped>
-.github-link {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: #fff !important;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    padding: 8px 12px !important;
-    border-radius: 5px;
-    margin-right: 10px;
-}
-
-.github-link:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    transform: translateY(-1px);
-}
-
-.github-link i {
-    font-size: 1.2rem;
-}
-
-.github-text {
-    font-size: 0.9rem;
-}
-
-/* 响应式设计 - 在小屏幕上只显示图标 */
-@media (max-width: 768px) {
-    .github-text {
-        display: none;
-    }
-    
-    .github-link {
-        padding: 8px !important;
-    }
-}
-</style>

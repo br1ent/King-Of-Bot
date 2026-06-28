@@ -1,10 +1,10 @@
-﻿<template>
+<template>
     <ContentField>
-        <div class="home-container">
-            <div class="main-content">
+        <div class="max-w-7xl mx-auto px-5">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 my-10">
                 <!-- 游戏介绍 -->
                 <div class="intro-section">
-                    <h1 class="intro-title">
+                    <h1 class="mb-2">
                         <span class="title-text">King Of Bot</span>
                     </h1>
                     <p class="intro-subtitle">智能对战贪吃蛇</p>
@@ -30,16 +30,16 @@
                 <!-- 项目演示 -->
                 <div class="demo-section">
                     <h2 class="section-title">项目演示</h2>
-                    <div class="demo-grid">
-                        <div class="demo-item">
-                            <h3>对战演示</h3>
+                    <div class="flex flex-col gap-10">
+                        <div class="card bg-base-200/50 shadow-xl p-10 text-center transition-transform duration-300 hover:-translate-y-1">
+                            <h3 class="text-2xl font-semibold mb-6">对战演示</h3>
                             <img src="../../assets/gif/对战演示.gif" alt="对战演示" class="demo-image">
-                            <p>实时多人对战界面展示</p>
+                            <p class="text-base-content/60 text-lg font-medium mt-5">实时多人对战界面展示</p>
                         </div>
-                        <div class="demo-item">
-                            <h3>录像演示</h3>
+                        <div class="card bg-base-200/50 shadow-xl p-10 text-center transition-transform duration-300 hover:-translate-y-1">
+                            <h3 class="text-2xl font-semibold mb-6">录像演示</h3>
                             <img src="../../assets/gif/录像演示.gif" alt="录像演示" class="demo-image">
-                            <p>游戏录像回放功能</p>
+                            <p class="text-base-content/60 text-lg font-medium mt-5">游戏录像回放功能</p>
                         </div>
                     </div>
                 </div>
@@ -53,32 +53,10 @@ import ContentField from '@/components/ContentField.vue'
 </script>
 
 <style scoped>
-.home-container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.main-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: start;
-    margin: 40px 0;
-}
-
-.intro-section {
-    padding: 0;
-}
-
-.intro-title {
-    line-height: 2;
-}
-
 .title-text {
     font-size: 3rem;
-    font-weight: 500;
-    background: lightcoral;
+    font-weight: 700;
+    background: linear-gradient(135deg, oklch(50% 0.25 175), oklch(55% 0.20 250));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -87,7 +65,7 @@ import ContentField from '@/components/ContentField.vue'
 
 .intro-subtitle {
     font-size: 1.8rem;
-    color: #666;
+    color: oklch(40% 0.03 260);
     margin-bottom: 30px;
     font-weight: 500;
 }
@@ -95,7 +73,7 @@ import ContentField from '@/components/ContentField.vue'
 .intro-content {
     font-size: 1.2rem;
     line-height: 1.8;
-    color: #333;
+    color: oklch(35% 0.04 260);
 }
 
 .intro-content p {
@@ -113,43 +91,11 @@ import ContentField from '@/components/ContentField.vue'
     line-height: 1.6;
 }
 
-/* 项目演示 */
-.demo-section {
-    padding: 0;
-}
-
 .section-title {
     font-size: 2.8rem;
     font-weight: 700;
-    color: #333;
     margin-bottom: 40px;
     text-align: left;
-}
-
-.demo-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-}
-
-.demo-item {
-    text-align: center;
-    background: #f8f9fa;
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-    transition: transform 0.3s ease;
-}
-
-.demo-item:hover {
-    transform: translateY(-5px);
-}
-
-.demo-item h3 {
-    font-size: 1.8rem;
-    font-weight: 600;
-    color: #333;
-    margin-bottom: 25px;
 }
 
 .demo-image {
@@ -157,52 +103,21 @@ import ContentField from '@/components/ContentField.vue'
     max-width: 500px;
     height: auto;
     border-radius: 15px;
-    margin-bottom: 20px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-    border: 3px solid #fff;
-}
-
-.demo-item p {
-    color: #666;
-    font-size: 1.1rem;
-    font-weight: 500;
-}
-
-/* 响应式设计 */
-@media (max-width: 1200px) {
-    .main-content {
-        gap: 40px;
-    }
-
-    .title-text {
-        font-size: 3.5rem;
-    }
-
-    .demo-image {
-        max-width: 450px;
-    }
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border: 2px solid oklch(85% 0.03 260);
+    display: block;
+    margin: 0 auto;
 }
 
 @media (max-width: 992px) {
-    .main-content {
-        grid-template-columns: 1fr;
-        gap: 60px;
-    }
-
     .intro-section {
         text-align: center;
     }
-
     .intro-content {
         text-align: left;
     }
-
     .section-title {
         text-align: center;
-    }
-
-    .demo-image {
-        max-width: 500px;
     }
 }
 
@@ -210,30 +125,14 @@ import ContentField from '@/components/ContentField.vue'
     .title-text {
         font-size: 2.8rem;
     }
-
     .intro-subtitle {
         font-size: 1.5rem;
     }
-
     .section-title {
         font-size: 2.2rem;
     }
-
-    .demo-item {
-        padding: 30px 20px;
-    }
-
     .demo-image {
         max-width: 100%;
-    }
-
-    .quick-access .btn {
-        display: block;
-        width: 100%;
-        max-width: 300px;
-        margin: 15px auto;
-        padding: 12px 30px;
-        font-size: 1.2rem;
     }
 }
 
@@ -241,21 +140,14 @@ import ContentField from '@/components/ContentField.vue'
     .title-text {
         font-size: 2.2rem;
     }
-
     .intro-subtitle {
         font-size: 1.2rem;
     }
-
     .section-title {
         font-size: 1.8rem;
     }
-
     .intro-content {
         font-size: 1.1rem;
-    }
-
-    .demo-item {
-        padding: 25px 15px;
     }
 }
 </style>

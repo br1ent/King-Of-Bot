@@ -1,42 +1,44 @@
-﻿<template>
+<template>
     <LoginRegisterField v-if="!$store.state.user.pulling_info">
-        <h3 class="text-center mb-4 fw-bold text-primary">登 录</h3>
+        <h3 class="text-center mb-4 font-bold text-primary text-xl">登 录</h3>
 
-        <div v-if="successMsg" class="alert alert-success border-0 shadow-sm mb-3">
+        <div v-if="successMsg" class="alert alert-success shadow-sm mb-3">
             {{ successMsg }}
         </div>
-        <div v-if="errMsg" class="alert alert-danger border-0 shadow-sm mb-3">
+        <div v-if="errMsg" class="alert alert-error shadow-sm mb-3">
             {{ errMsg }}
         </div>
 
         <form @submit.prevent="login">
             <div class="mb-3">
-                <label for="username" class="form-label small fw-bold">用户名</label>
-                <input 
-                    type="text" 
-                    class="form-control form-control-lg" 
-                    id="username" 
-                    placeholder="请输入用户名" 
+                <label for="username" class="label-text text-sm font-bold">用户名</label>
+                <input
+                    type="text"
+                    class="input input-bordered input-lg w-full"
+                    id="username"
+                    placeholder="请输入用户名"
                     v-model="username"
                 >
             </div>
             <div class="mb-4">
-                <label for="password" class="form-label small fw-bold">密码</label>
-                <input 
-                    type="password" 
-                    class="form-control form-control-lg" 
-                    id="password" 
-                    placeholder="请输入密码" 
+                <label for="password" class="label-text text-sm font-bold">密码</label>
+                <input
+                    type="password"
+                    class="input input-bordered input-lg w-full"
+                    id="password"
+                    placeholder="请输入密码"
                     v-model="password"
                 >
             </div>
-            <button type="submit" class="btn btn-primary btn-lg w-100 shadow-sm">
+            <button type="submit" class="btn btn-primary btn-lg w-full">
                 登 录
             </button>
         </form>
 
-        <div class="text-center mt-3">
-            <small class="text-muted">还没有账号？<router-link :to="{name: 'register'}" class="text-decoration-none">立即注册</router-link></small>
+        <div class="text-center mt-4">
+            <small class="text-base-content/50">没有账号？
+                <router-link :to="{name: 'register'}" class="link link-primary">立即注册</router-link>
+            </small>
         </div>
     </LoginRegisterField>
 </template>
@@ -77,8 +79,8 @@ const login = () => {
         password: password.value,
         success() {
             store.dispatch("getinfo", {
-                success() { 
-                    successMsg.value = "登录成功!"
+                success() {
+                    successMsg.value = "登录成功！"
                     setTimeout(() => {
                         router.push({name: 'home'});
                     }, 1000);
@@ -86,11 +88,8 @@ const login = () => {
             })
         },
         error() {
-            errMsg.value = "用户名或密码错误!"
+            errMsg.value = "用户名或密码错误！"
         }
     });
 };
 </script>
-
-<style scoped>
-</style>

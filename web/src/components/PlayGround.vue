@@ -53,8 +53,8 @@ div.playground {
     display: flex;
     align-items: center;
     gap: 5px;
-    background-color: rgba(0, 0, 0, 0.6);
-    padding: 8px 12px;
+    background-color: oklch(20% 0.03 260 / 0.85);
+    padding: 6px 14px;
     border-radius: 8px;
     z-index: 5;
 }
@@ -73,11 +73,11 @@ div.playground {
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    border: 2px solid white;
+    border: 2px solid oklch(96% 0.01 260);
 }
 
 .snake-text {
-    color: white;
+    color: oklch(96% 0.01 260);
     font-size: 14px;
     font-weight: bold;
 }

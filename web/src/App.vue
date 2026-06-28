@@ -1,15 +1,16 @@
-﻿<template>
+<template>
   <div>
-    <NavBar v-if="shouldShowNavBar"></NavBar>
-    <router-view></router-view>
+    <template v-if="shouldShowSideBar">
+      <SideBar />
+    </template>
+    <template v-else>
+      <router-view></router-view>
+    </template>
   </div>
 </template>
 
-
 <script setup>
-import 'bootstrap/dist/css/bootstrap.min.css'
-import 'bootstrap/dist/js/bootstrap'
-import NavBar from './components/NavBar.vue';
+import SideBar from './components/SideBar.vue';
 import { useStore } from 'vuex';
 import { useRoute } from 'vue-router';
 import { computed, onMounted } from 'vue';
@@ -17,18 +18,17 @@ import { computed, onMounted } from 'vue';
 const store = useStore();
 const route = useRoute();
 
-const shouldShowNavBar = computed(() => {
+// 对战中隐藏侧边栏，全屏沉浸
+const shouldShowSideBar = computed(() => {
     if (store.state.pk.status === 'playing') return false;
-   
     return true;
 });
 
-// 应用启动时恢复用户登录状态
+// 启动时恢复登录状态
 onMounted(() => {
     const token = localStorage.getItem("jwt_token");
     if (token) {
         store.commit("updateToken", token);
-    
         store.dispatch("getinfo", {
             error() {
                 localStorage.removeItem("jwt_token");
